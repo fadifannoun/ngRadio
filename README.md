@@ -4,6 +4,9 @@ Ready-To-User ngRadio
 # Install
 bower install ngRadio
 
-# Usage
+# Options & Documentations
+Working on
 
-<ng-radio nrg-source={{ yourStationList }}></ng-radio>
+# Usage
+`<ng-radio nrg-source={{ yourStationList }}></ng-radio>`
+
