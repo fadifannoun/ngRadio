@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="row">
+    <h1>First ngRadio</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="row">
+    <h2>How To Use</h2>
+    <ol>
+      <li>
+        <p>Add ngRadio plugin after your AngularJS.</p>
+        <p>
+          <code>
+            &lt;script src="angular.min.js"&gt;&lt;/script&gt;
+          </code>
+          <br>
+          <code>
+            &lt;script src='ngRadio.min.js'&gt;&lt;/script&gt;
+          </code>
+        </p>
+      </li>
+      <li>
+        <p>Add ngRadio module dependency to your app.</p>
+        <p>
+          <code>
+            angular.module('yourApp', ['ngRadio']);
+          </code>
+        </p>
+      </li>
+      <li>
+        <p>Use the avaiable directive to show the plugin directly on your view</p>
+        <code>
+          &lt;ng-radio ngr-source="yourList"&gt;&lt;/ng-radio&gt;
+        </code>
+      </li>
+      <li>
+        <p>Adjust your radio options.</p>
+        <code>
+          &lt;ng-radio ngr-source="yourList" ngr-enableNavigation="true" ngr-addStopButton="true"&gt;&lt;/ng-radio&gt;
+        </code>
+      </li>
+    </ol>
+  </div>
+  <hr>
+
+  <div class="row">
+    <h2>Live Demo</h2>
+    <p>
+      Check the followin live usage
+    </p>
+    <div class="col-xs-12 col-sm-3">
+        <ng-radio ngr-source="{{radios}}"></ng-radio>
+    </div>
+</div>
+
+<p class="text-center">
+  <br>
+  <a href="https://github.com/fadifannoun/ngRadio">@fadifannoun - ngRadio</a>
+  <br>
+</p>

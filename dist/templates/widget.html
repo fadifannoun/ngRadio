@@ -1,0 +1,25 @@
+<div class="radio-player animated flipInY">
+    <div class="lv-player">
+        <div class="row">
+            <div class="col col-33">
+                <div class="play-button">
+                    <button type="button" ng-click="audio.play()"><i class="icon ion-ios-play"></i></button>
+                    <button type="button" ng-click="audio.pause()"><i class="icon ion-ios-pause"></i></button>
+                </div>
+            </div>
+            <div class="col">
+                <div class="current-playing">
+                    <div class="cp-content">
+                        {{ activeStation.name }}
+                        <div class="previous-station">
+                            <button class="button button-icon button-clear icon-right icon ion-chevron-right" ng-click="previous()"></button>
+                        </div>
+                        <div class="next-station">
+                            <button class="button button-icon button-clear icon-left icon ion-chevron-left" ng-click="next()"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

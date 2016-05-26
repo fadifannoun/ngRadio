@@ -1,0 +1,30 @@
+<div id="ngRadio" class="radio-player animated flipInY">
+    <div class="lv-player">
+        <div class="row">
+            <div class="col">
+                <div class="prev">
+                    <div class="previous-station">
+                        <button class="button button-icon button-clear icon-right icon ion-chevron-right" ng-click="previous()"></button>
+                    </div>
+                </div>
+                <div class="play-button">
+                    <button type="button" ng-click="audio.play()"><i class="icon ion-ios-play"></i></button>
+                    <button type="button" ng-click="audio.pause()"><i class="icon ion-ios-pause"></i></button>
+                </div>
+                <div class="next">
+                    <div class="next-station">
+                        <button class="button button-icon button-clear icon-left icon ion-chevron-left" ng-click="next()"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col" ng-click="expandStationsList()">
+                {{ activeStation.name }}
+            </div>
+        </div>
+        <div class="list" ng-show="listExpanded">
+            <a href="" class="item" ng-repeat="st in list" ng-click="setActiveStation(st)">{{ st.name }}</a>
+        </div>
+    </div>
+</div>
