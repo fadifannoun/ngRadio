@@ -15,7 +15,7 @@
 				scope.listExpanded = false;
 				scope.enableNavigation = true;
 				scope.station = null;
-				scope.isLoading = false;
+				scope.isLoading = false;				
 
 				// private vars
 				var list, activeIndex = 0,  userList = attrs.ngrSource;
@@ -92,6 +92,10 @@
 						if(scope.station !== null){
 							this.stop();
 						}
+					},
+					isPlaying: function(){
+						if(scope.station === null) return false;
+						return scope.station.paused ? false : true;
 					}
 				}
 

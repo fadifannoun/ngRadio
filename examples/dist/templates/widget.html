@@ -8,8 +8,8 @@
                     </div>
                 </div>
                 <div class="play-button">
-                    <button type="button" ng-click="audio.play()"><i class="icon ion-ios-play"></i></button>
-                    <button type="button" ng-click="audio.pause()"><i class="icon ion-ios-pause"></i></button>
+                    <button type="button" ng-click="audio.play()" ng-if="!audio.isPlaying()"><i class="icon ion-ios-play"></i></button>
+                    <button type="button" ng-click="audio.pause()" ng-if="audio.isPlaying()"><i class="icon ion-ios-pause"></i></button>
                 </div>
                 <div class="next">
                     <div class="next-station">
