@@ -3,19 +3,53 @@
 	angular.module('ngRadio').directive('ngRadio', ngRadioDirective);
 
 	function ngRadioDirective(ngRadioService, $interval){
+
+		function getTemplate(){
+			return ['<div id="ngRadio" class="radio-player animated flipInY">',
+				'<div class="lv-player">',
+					'<div class="row">',
+						'<div class="col">',
+							'<div class="prev">',
+								'<div class="previous-station">',
+									'<button class="button button-icon button-clear icon-right icon ion-chevron-right" ng-click="previous()"></button>',
+								'</div>',
+							'</div>',
+							'<div class="play-button">',
+								'<button type="button" ng-click="audio.play()" ng-if="!audio.isPlaying()"><i class="icon ion-ios-play"></i></button>',
+								'<button type="button" ng-click="audio.pause()" ng-if="audio.isPlaying()"><i class="icon ion-ios-pause"></i></button>',
+							'</div>',
+							'<div class="next">',
+								'<div class="next-station">',
+									'<button class="button button-icon button-clear icon-left icon ion-chevron-left" ng-click="next()"></button>',
+								'</div>',
+							'</div>',
+						'</div>',
+					'</div>',
+					'<div class="row">',
+						'<div class="col" ng-click="expandStationsList()">',
+							'{{ activeStation.name }}',
+						'</div>',
+					'</div>',
+					'<div class="list" ng-show="listExpanded">',
+						'<a href="" class="item" ng-repeat="st in list" ng-click="setActiveStation(st)">{{ st.name }}</a>',
+					'</div>',
+				'</div>',
+			'</div>'].join('');
+		}
+
 		return {
 
 			restrict: 'E',
             scope: true,
             replace: true,
-            template: '<ng-include src="getTemplateUrl()" />',
+            template: getTemplate(),
 			link: function(scope, elt, attrs){
 
 				// plugin scope
 				scope.listExpanded = false;
 				scope.enableNavigation = true;
 				scope.station = null;
-				scope.isLoading = false;				
+				scope.isLoading = false;
 
 				// private vars
 				var list, activeIndex = 0,  userList = attrs.ngrSource;
@@ -24,7 +58,38 @@
 
 				// handle templates
 				scope.getTemplateUrl = function() {
-	              return "dist/templates/" + template;
+					return [
+  					  '<div id="ngRadio" class="radio-player animated flipInY">',
+  					      '<div class="lv-player">',
+  					          '<div class="row">',
+  					              '<div class="col">',
+  					                  '<div class="prev">',
+  					                      '<div class="previous-station">',
+  					                          '<button class="button button-icon button-clear icon-right icon ion-chevron-right" ng-click="previous()"></button>',
+  					                      '</div>',
+  					                  '</div>',
+  					                  '<div class="play-button">',
+  					                      '<button type="button" ng-click="audio.play()" ng-if="!audio.isPlaying()"><i class="icon ion-ios-play"></i></button>',
+  					                      '<button type="button" ng-click="audio.pause()" ng-if="audio.isPlaying()"><i class="icon ion-ios-pause"></i></button>',
+  					                  '</div>',
+  					                  '<div class="next">',
+  					                      '<div class="next-station">',
+  					                          '<button class="button button-icon button-clear icon-left icon ion-chevron-left" ng-click="next()"></button>',
+  					                      '</div>',
+  					                  '</div>',
+  					              '</div>',
+  					          '</div>',
+  					          '<div class="row">',
+  					              '<div class="col" ng-click="expandStationsList()">',
+  					                  '{{ activeStation.name }}',
+  					              '</div>',
+  					          '</div>',
+  					          '<div class="list" ng-show="listExpanded">',
+  					              '<a href="" class="item" ng-repeat="st in list" ng-click="setActiveStation(st)">{{ st.name }}</a>',
+  					          '</div>',
+  					      '</div>',
+  					  '</div>'
+  				  ].join('');
 	            };
 
 				// set plugin options
