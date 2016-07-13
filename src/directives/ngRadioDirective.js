@@ -26,8 +26,10 @@
 						'</div>',
 					'</div>',
 					'<div class="row">',
-						'<div class="col" ng-click="expandStationsList()">',
-							'{{ activeStation.name }}',
+						'<div class="col">',
+							'<div class="exapnd-list" ng-click="expandStationsList()">'
+								'{{ activeStation.name }}',
+							'</div>',
 						'</div>',
 					'</div>',
 					'<div class="list" ng-show="listExpanded">',
