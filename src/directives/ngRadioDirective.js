@@ -27,7 +27,7 @@
 					'</div>',
 					'<div class="row">',
 						'<div class="col">',
-							'<div class="exapnd-list" ng-click="expandStationsList()">'
+							'<div class="exapnd-list" ng-click="expandStationsList()">',
 								'{{ activeStation.name }}',
 							'</div>',
 						'</div>',
